@@ -35,7 +35,7 @@ jobs:
           wget https://pkgconfig.freedesktop.org/releases/pkg-config-0.29.2.tar.gz
           tar xzf pkg-config-0.29.2.tar.gz
           cd pkg-config-0.29.2
-          ./configure --with-internal-glib
+          ./configure --with-internal-glib --with-pc-path=/usr/lib/x86_64-linux-gnu/pkgconfig
           make
           sudo make install
 
