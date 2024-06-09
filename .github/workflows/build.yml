@@ -50,13 +50,6 @@ jobs:
           ./configure
           make
           sudo make install
-        continue-on-error: true
-
-      - name: Print log
-        run: |
-          cd
-          cd vapoursynth-R68
-          cat config.log
 
       - name: Build
         run: |
@@ -78,7 +71,7 @@ jobs:
 
   github-release:
     name: Create GitHub release
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     needs:
       - build-linux
@@ -107,6 +100,6 @@ jobs:
         run: |
           gh release upload \
           '${{ github.ref_name }}' \
-          'misrc_extract-linux/${{ env.ARCHIVE_NAME_LINUX }}' \
+          'vapoursynth_nnedi3-linux/${{ env.ARCHIVE_NAME_LINUX }}' \
           --repo '${{ github.repository }}'
 
