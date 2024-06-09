@@ -50,7 +50,7 @@ jobs:
           ./configure
           make
           sudo make install
-          continue-on-error: true
+        continue-on-error: true
 
       - name: Print log
         run: |
