@@ -7,7 +7,7 @@ on:
       - "*"
 
 env:
-  ARCHIVE_NAME_LINUX: ${{ github.ref_name }}-linux-x86_64.zip
+  ARCHIVE_NAME_LINUX: vapoursynth-nnedi3-${{ github.ref_name }}-linux-x86_64.zip
 
 jobs:
   build-linux:
