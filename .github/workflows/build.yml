@@ -31,6 +31,7 @@ jobs:
 
       - name: Build and install zimg
         run: |
+          cd
           wget https://github.com/sekrit-twc/zimg/archive/refs/tags/release-3.0.5.tar.gz
           tar xzf release-3.0.5.tar.gz
           cd zimg-release-3.0.5
@@ -41,6 +42,7 @@ jobs:
 
       - name: Build and install VapourSynth
         run: |
+          cd
           wget https://github.com/vapoursynth/vapoursynth/archive/refs/tags/R68.tar.gz
           tar xzf R68.tar.gz
           cd vapoursynth-R68
@@ -48,6 +50,13 @@ jobs:
           ./configure
           make
           sudo make install
+          continue-on-error: true
+
+      - name: Print log
+        run: |
+          cd
+          cd vapoursynth-R68
+          cat config.log
 
       - name: Build
         run: |
