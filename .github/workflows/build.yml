@@ -22,12 +22,52 @@ jobs:
 
       - uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: cmake nasm yasm build-essential automake autoconf libtool python3
+          packages: cmake nasm yasm build-essential python3
           version: 1.0
 
       - name: Install Cython
         run: |
           pip3 install cython
+
+      - name: Build and install Autotools (m4)
+        run: |
+          cd
+          wget https://ftp.gnu.org/gnu/m4/m4-1.4.19.tar.gz
+          tar xzf m4-1.4.19.tar.gz
+          cd m4-1.4.19
+          ./configure
+          make
+          sudo make install
+
+      - name: Build and install Autotools (autoconf)
+        run: |
+          cd
+          wget https://ftp.gnu.org/gnu/autoconf/autoconf-2.72.tar.gz
+          tar xzf autoconf-2.72.tar.gz
+          cd autoconf-2.72
+          ./configure
+          make
+          sudo make install
+
+      - name: Build and install Autotools (automake)
+        run: |
+          cd
+          wget https://ftp.gnu.org/gnu/automake/automake-1.16.5.tar.gz
+          tar xzf automake-1.16.5.tar.gz
+          cd automake-1.16.5
+          ./configure
+          make
+          sudo make install
+
+      - name: Build and install Autotools (libtool)
+        run: |
+          cd
+          wget https://ftpmirror.gnu.org/libtool/libtool-2.4.7.tar.gz
+          tar xzf libtool-2.4.7.tar.gz
+          cd libtool-2.4.7
+          ./configure
+          make
+          sudo make install
 
       - name: Build and install zimg
         run: |
