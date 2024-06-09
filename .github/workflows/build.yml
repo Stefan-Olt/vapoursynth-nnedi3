@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     tags:
-      - "*Release*"
+      - "*"
 
 env:
   ARCHIVE_NAME_LINUX: ${{ github.ref_name }}-linux-x86_64.zip
